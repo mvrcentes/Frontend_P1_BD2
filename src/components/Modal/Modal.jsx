@@ -27,18 +27,18 @@ const Modal = ({ isOpen, onClose, data }) => {
   return (
     <div className={styles.modalOverlay} ref={modalOverlayRef}>
       <div className={styles.modalContent}>
-        <h2>Student Details</h2>
+        <h2>Detalles de Emergencia del Estudiante</h2>
         <div>
-          <strong>Guide:</strong> {data.guide || 'N/A'}
+          <strong>Padre o Tutor:</strong> {data.guide || 'N/A'}
         </div>
         <div>
-          <strong>Address:</strong> {data.address || 'N/A'}
+          <strong>Dirección:</strong> {data.address || 'N/A'}
         </div>
         <div>
-          <strong>Emergency Phone:</strong> {data.emergencyPhone || 'N/A'}
+          <strong>Teléfono de Emergencia:</strong> {data.emergencyPhone || 'N/A'}
         </div>
         <div>
-          <strong>Parent Email:</strong> {data.parentEmail || 'N/A'}
+          <strong>Correo del Padre o Tutor:</strong> {data.parentEmail || 'N/A'}
         </div>
         <div className={styles.buttonContainer}>
           <button className={styles.closeModalButton} onClick={onClose}>Close</button>
