@@ -20,7 +20,7 @@ const InfoTable = ({ data, columns, title, onDetailsClick }) => {
                                 <td key={colIndex}>{row[column.key]}</td>
                             ))}
                             {row.details && (
-                                <td>
+                                <td className={styles.buttonCell}>
                                     <button className={styles.detailsButton} onClick={() => onDetailsClick(row)}>Details</button>
                                 </td>
                             )}

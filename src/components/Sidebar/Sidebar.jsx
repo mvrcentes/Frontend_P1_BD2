@@ -15,8 +15,8 @@ const menu = [
         link: '/personal'
     },
     {
-        name: 'Clases',
-        link: '/clases'
+        name: 'Cursos',
+        link: '/cursos'
     },
 ]
 

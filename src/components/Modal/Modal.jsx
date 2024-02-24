@@ -8,18 +8,19 @@ const Modal = ({ isOpen, onClose, data }) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalOverlayRef.current && !modalOverlayRef.current.contains(event.target)) {
-        onClose()
+        onClose();
       }
-    }
+    };
 
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [isOpen, onClose])
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen, onClose]);
+
 
   if (!isOpen) return null
 
@@ -28,18 +29,20 @@ const Modal = ({ isOpen, onClose, data }) => {
       <div className={styles.modalContent}>
         <h2>Student Details</h2>
         <div>
-          <strong>Guide:</strong> {data.guide}
+          <strong>Guide:</strong> {data.guide || 'N/A'}
         </div>
         <div>
-          <strong>Address:</strong> {data.address}
+          <strong>Address:</strong> {data.address || 'N/A'}
         </div>
         <div>
-          <strong>Emergency Phone:</strong> {data.emergencyPhone}
+          <strong>Emergency Phone:</strong> {data.emergencyPhone || 'N/A'}
         </div>
         <div>
-          <strong>Parent Email:</strong> {data.parentEmail}
+          <strong>Parent Email:</strong> {data.parentEmail || 'N/A'}
         </div>
-        <button onClick={onClose}>Close</button>
+        <div className={styles.buttonContainer}>
+          <button className={styles.closeModalButton} onClick={onClose}>Close</button>
+        </div>
       </div>
     </div>
   )

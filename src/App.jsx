@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 import { Routes, Route } from 'react-router-dom'
 import Personal from './pages/Personal/Personal'
 import Profesores from './pages/Profesores/Profesores'
+import Clases from './pages/Cursos/Cursos'
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/profesores" element={<Profesores />} />
+        </Routes>
+        <Routes>
+          <Route path="/cursos" element={<Clases />} />
         </Routes>
       </div>
     </div>

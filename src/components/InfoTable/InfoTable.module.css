@@ -16,14 +16,21 @@
   align-items: start;
 }
 
+.buttonCell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .detailsButton {
   padding: 5px;
-  background-color: #1d3fff;
-  color: white;
+  background: none;
+  color: #000;
   border: none;
   border-radius: 5px;
   margin: auto;
   text-align: center;
+  text-decoration: underline;
 }
 
 th,
