@@ -5,16 +5,16 @@ import Modal from "../../components/Modal/Modal";
 
 const studentsData = [
   // Sample data for students
-  { code: '20070101', name: 'John', lastName: 'Doe', grade: '5to Bachillerato', averageGrade: 85, details: true },
-  { code: '20070038', name: 'Jane', lastName: 'Smith', grade: '5to Bachillerato', averageGrade: 92, details: true },
+  { codigo_estudiante: '20070101', nombre: 'John', apellido: 'Doe', grado: '5to Bachillerato', averageGrade: 85, details: true },
+  { codigo_estudiante: '20070038', nombre: 'Jane', apellido: 'Smith', grado: '5to Bachillerato', averageGrade: 92, details: true },
   // Add more student data as needed
 ]
 
 const studentsColumns = [
-  { key: 'code', title: 'Código' },
-  { key: 'name', title: 'Nombre' },
-  { key: 'lastName', title: 'Apellido' },
-  { key: 'grade', title: 'Grado' },
+  { key: 'codigo_estudiante', title: 'Código' },
+  { key: 'nombre', title: 'Nombre' },
+  { key: 'apellido', title: 'Apellido' },
+  { key: 'grado', title: 'Grado' },
   { key: 'averageGrade', title: 'Promedio' },
 ]
 

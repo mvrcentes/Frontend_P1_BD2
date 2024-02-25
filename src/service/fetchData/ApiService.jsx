@@ -6,5 +6,6 @@ const server = "http://192.168.0.2:3000"
 
 let ApiService = {}
 
+const students = await axios.get(`${server}/api/estudiantes`)
 
 export default ApiService

@@ -18,6 +18,10 @@ const menu = [
         name: 'Cursos',
         link: '/cursos'
     },
+    {
+        name: 'Material de Cursos',
+        link: '/material-cursos'
+    },
 ]
 
 const Sidebar = () => {

@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import Personal from './pages/Personal/Personal'
 import Profesores from './pages/Profesores/Profesores'
 import Clases from './pages/Cursos/Cursos'
+import Material from './pages/Material/Material'
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/cursos" element={<Clases />} />
+        </Routes>
+        <Routes>
+          <Route path="/material-cursos" element={<Material />} />
         </Routes>
       </div>
     </div>

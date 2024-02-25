@@ -32,13 +32,7 @@ const Modal = ({ isOpen, onClose, data }) => {
           <strong>Padre o Tutor:</strong> {data.guide || 'N/A'}
         </div>
         <div>
-          <strong>Dirección:</strong> {data.address || 'N/A'}
-        </div>
-        <div>
           <strong>Teléfono de Emergencia:</strong> {data.emergencyPhone || 'N/A'}
-        </div>
-        <div>
-          <strong>Correo del Padre o Tutor:</strong> {data.parentEmail || 'N/A'}
         </div>
         <div className={styles.buttonContainer}>
           <button className={styles.closeModalButton} onClick={onClose}>Close</button>
