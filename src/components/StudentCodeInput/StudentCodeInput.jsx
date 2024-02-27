@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
+import styles from './StudentCodeInput.module.css'
 
 const StudentCodeInput = ({ onSubmit }) => {
     const [studentCode, setStudentCode] = useState('');
@@ -10,12 +11,12 @@ const StudentCodeInput = ({ onSubmit }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
+        <form className={styles.studentCodeForm} onSubmit={handleSubmit}>
+            <label className={styles.label}>
                 Student Code:
-                <input type="text" value={studentCode} onChange={(e) => setStudentCode(e.target.value)} />
+                <input className={styles.inputStudentCode} type="text" value={studentCode} onChange={(e) => setStudentCode(e.target.value)} />
             </label>
-            <button type="submit">Submit</button>
+            <button className={styles.studentCodeSubmit} type="submit">Submit</button>
         </form>
     );
 };

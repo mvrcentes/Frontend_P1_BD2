@@ -1,8 +1,14 @@
 import PropTypes from 'prop-types'
+import styles from './GradesTable.module.css'
 
 const GradesTable = ({ grades, onEdit }) => {
     return (
-        <table>
+        <table className={styles.table}>
+            <colgroup>
+                <col style={{ width: '40%' }} /> {/* Set width for the first column */}
+                <col style={{ width: '40%' }} /> {/* Set width for the second column */}
+                <col style={{ width: '10%' }} /> {/* Set width for the third column (button) */}
+            </colgroup>
             <thead>
                 <tr>
                     <th>Curso</th>
@@ -16,7 +22,7 @@ const GradesTable = ({ grades, onEdit }) => {
                         <td>{grade.codigo_curso}</td>
                         <td>{grade.nota}</td>
                         <td>
-                            <button onClick={() => onEdit(index)}>Edit</button>
+                            <button className={styles.detailsButton} onClick={() => onEdit(index)}>Edit</button>
                         </td>
                     </tr>
                 ))}
