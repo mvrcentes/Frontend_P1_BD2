@@ -41,3 +41,15 @@
     color: #fff;
     background-color: #524fff;
 }
+
+.toggleButton {
+    position: absolute;
+    right: 20px;
+    top: 2rem;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 5px;
+    margin: auto;
+    text-align: center;
+    text-decoration: underline;
+}

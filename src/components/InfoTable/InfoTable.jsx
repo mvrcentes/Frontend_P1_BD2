@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './InfoTable.module.css';
 
-const InfoTable = ({ data, columns, title, onDetailsClick }) => {
+const InfoTable = ({ data, columns, title, showDetailsButton, onDetailsClick }) => {
     return (
         <div className={styles.tableContainer}>
             <h2 className={styles.tableTitle}>{title}</h2>
@@ -11,6 +11,7 @@ const InfoTable = ({ data, columns, title, onDetailsClick }) => {
                         {columns.map((column, index) => (
                             <th key={index}>{column.title}</th>
                         ))}
+                        {showDetailsButton && <th>Details</th>}
                     </tr>
                 </thead>
                 <tbody>
@@ -19,7 +20,7 @@ const InfoTable = ({ data, columns, title, onDetailsClick }) => {
                             {columns.map((column, colIndex) => (
                                 <td key={colIndex}>{row[column.key]}</td>
                             ))}
-                            {row.details && (
+                            {showDetailsButton && (
                                 <td className={styles.buttonCell}>
                                     <button className={styles.detailsButton} onClick={() => onDetailsClick(row)}>Details</button>
                                 </td>
@@ -41,6 +42,7 @@ InfoTable.propTypes = {
         })
     ).isRequired,
     title: PropTypes.string.isRequired,
+    showDetailsButton: PropTypes.bool.isRequired, // Boolean to determine if the Details button should be displayed
     onDetailsClick: PropTypes.func.isRequired
 }
 

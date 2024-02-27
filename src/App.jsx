@@ -3,9 +3,9 @@ import Estudiantes from './pages/Estudiantes/Estudiantes'
 import Sidebar from './components/Sidebar/Sidebar'
 import { Routes, Route } from 'react-router-dom'
 import Personal from './pages/Personal/Personal'
-import Profesores from './pages/Profesores/Profesores'
 import Clases from './pages/Cursos/Cursos'
-import Material from './pages/Material/Material'
+import Asistencias from './pages/Asistencias/Asistencias'
+import Notas from './pages/Notas/Notas'
 
 function App() {
   return (
@@ -19,13 +19,13 @@ function App() {
           <Route path="/personal" element={<Personal />} />
         </Routes>
         <Routes>
-          <Route path="/profesores" element={<Profesores />} />
-        </Routes>
-        <Routes>
           <Route path="/cursos" element={<Clases />} />
         </Routes>
         <Routes>
-          <Route path="/material-cursos" element={<Material />} />
+          <Route path="/asistencias" element={<Asistencias />} />
+        </Routes>
+        <Routes>
+          <Route path="/notas" element={<Notas />} />
         </Routes>
       </div>
     </div>
