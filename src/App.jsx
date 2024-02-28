@@ -6,6 +6,8 @@ import Personal from './pages/Personal/Personal'
 import Clases from './pages/Cursos/Cursos'
 import Asistencias from './pages/Asistencias/Asistencias'
 import Notas from './pages/Notas/Notas'
+import CrearEstudianteForm from './pages/CrearEstudianteForm/CrearEstudianteForm'
+import FireWorker from './pages/FireWorker/FireWorker'
 
 function App() {
   return (
@@ -26,6 +28,12 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/notas" element={<Notas />} />
+        </Routes>
+        <Routes>
+          <Route path="/agregar-estudiante" element={<CrearEstudianteForm />} />
+        </Routes>
+        <Routes>
+          <Route path="/despedir-personal" element={<FireWorker />} />
         </Routes>
       </div>
     </div>

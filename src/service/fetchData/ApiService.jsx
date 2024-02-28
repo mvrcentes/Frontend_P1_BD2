@@ -16,7 +16,7 @@ const ApiService = {
         }
     },
 
-    postEstudiantes: async (estudianteData) => {
+    postEstudiante: async (estudianteData) => {
         try {
             const response = await axios.post(`${apiURL}/estudiantes/`, estudianteData);
             return response.data;
@@ -82,6 +82,46 @@ const ApiService = {
             return response.data;
         } catch (error) {
             console.error("Error posting personal:", error.message);
+            throw error;
+        }
+    },
+
+    getNotasEstudiante: async (codigo_estudiante) => {
+        try {
+            const response = await axios.get(`${server}/api/notas/${codigo_estudiante}`);
+            return response.data;
+        } catch (error) {
+            console.error("Error getting notas estudiante:", error.message);
+            throw error;
+        }
+    },
+
+    editNota: async (codigo_estudiante, codigo_curso, codigo_nota, nota) => {
+        try {
+            const response = await axios.put(`${server}/api/notas/${codigo_estudiante}`, { codigo_curso, codigo_nota, nota });
+            return response.data;
+        } catch (error) {
+            console.error("Error posting nota:", error.message);
+            throw error;
+        }
+    },
+
+    getWorkerInfo: async (codigo) => {
+        try {
+            const response = await axios.get(`${server}/api/personal/${codigo}`);
+            return response.data;
+        } catch (error) {
+            console.error("Error getting worker info:", error.message);
+            throw error;
+        }
+    },
+
+    deletePersonal: async (codigo) => {
+        try {
+            const response = await axios.delete(`${server}/api/personal/${codigo}`);
+            return response.data;
+        } catch (error) {
+            console.error("Error deleting worker:", error.message);
             throw error;
         }
     },

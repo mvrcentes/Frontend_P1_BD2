@@ -35,3 +35,9 @@
   height: 2rem;
   width: 50%;
 }
+
+.encargadoUL {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

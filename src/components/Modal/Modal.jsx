@@ -53,11 +53,17 @@ const Modal = ({ isOpen, onClose, data }) => {
         <div>
           <h3>Contactos de Emergencia:</h3>
           {data.contactos_de_emergencia && data.contactos_de_emergencia.length > 0 ? (
-            <ul>
+            <ul className={styles.encargadoUL}>
               {data.contactos_de_emergencia.map((contacto, index) => (
-                <li key={index}>
-                  {contacto.nombre} {contacto.apellido} ({contacto.parentesco}): {contacto.telefono}
-                </li>
+                <div key={index}>
+                  <strong>Nombre del encargado:</strong> {contacto.nombre}
+                  <br />
+                  <strong>Apellido del encargado:</strong> {contacto.apellido}
+                  <br />
+                  <strong>Parentesco:</strong> {contacto.parentesco}
+                  <br />
+                  <strong>Teléfono:</strong> {contacto.telefono}
+                </div>
               ))}
             </ul>
           ) : 'N/A'}
@@ -69,19 +75,11 @@ const Modal = ({ isOpen, onClose, data }) => {
           {data.cursos_actuales && data.cursos_actuales.length > 0 ? (
             <ul>
               {data.cursos_actuales.map((curso, index) => (
-                <li key={index}>{curso}</li>
-              ))}
-            </ul>
-          ) : 'N/A'}
-        </div>
-
-        {/* Cursos Aprobados */}
-        <div>
-          <h3>Cursos Aprobados:</h3>
-          {data.cursos_aprobados && data.cursos_aprobados.length > 0 ? (
-            <ul>
-              {data.cursos_aprobados.map((curso, index) => (
-                <li key={index}>{curso}</li>
+                <li key={index}>
+                  Código: {curso.codigo_curso}
+                  <br />
+                  Curso: {curso.nombre_del_curso}
+                </li>
               ))}
             </ul>
           ) : 'N/A'}
