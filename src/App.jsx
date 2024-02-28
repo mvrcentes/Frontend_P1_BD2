@@ -11,6 +11,7 @@ import FireWorker from './pages/FireWorker/FireWorker'
 import TopEstudiantes from './pages/TopEstudiantes/TopEstudiantes'
 import Material from './pages/Materiales/Materiales'
 import CrearMaterialesForm from './pages/CrearMaterialesForm/CrearMaterialesForm'
+import ChartPage from './pages/ChartPage/ChartPage'
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/despedir-personal" element={<FireWorker />} />
+        </Routes>
+        <Routes>
+          <Route path="/charts" element={<ChartPage />} />
         </Routes>
       </div>
     </div>

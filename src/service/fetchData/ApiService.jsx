@@ -56,6 +56,16 @@ const ApiService = {
         }
     },
 
+    getCurso: async (codigo_curso) => {
+        try {
+            const response = await axios.get(`${server}/api/cursos/${codigo_curso}`);
+            return response.data;
+        } catch (error) {
+            console.error("Error getting curso:", error.message);
+            throw error;
+        }
+    },
+
     postCursos: async (cursoData) => {
         try {
             const response = await axios.post(`${server}/api/cursos`, cursoData);

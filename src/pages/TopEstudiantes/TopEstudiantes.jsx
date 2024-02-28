@@ -5,9 +5,9 @@ import Modal from "../../components/Modal/Modal";
 import ApiService from "../../service/fetchData/ApiService";
 
 const topEstudiantesColumns = [
-    { key: 'codigo_curso', title: 'Código de Curso' },
-    { key: 'codigo_estudiante', title: 'Código de Estudiante' },
-    { key: 'nota', title: 'Nota' },
+    { key: 'nombre_curso', title: 'Curso' },
+    { key: 'estudiante', title: 'Estudiante' },
+    { key: 'nota_maxima', title: 'Nota' },
 ];
 
 const TopEstudiantes = () => {
@@ -39,7 +39,7 @@ const TopEstudiantes = () => {
 
     return (
         <div className={styles.topEstudiantesContainer}>
-            <InfoTable data={topEstudiantesData} columns={topEstudiantesColumns} title="TopEstudiantes" onDetailsClick={handleDetailsClick} />
+            <InfoTable data={topEstudiantesData} columns={topEstudiantesColumns} title="Top 10 Mejores Notas" onDetailsClick={handleDetailsClick} />
             <Modal isOpen={isModalOpen} onClose={closeModal} data={selectedStudent || {}} />
         </div>
     );

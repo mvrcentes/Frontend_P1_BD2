@@ -27,6 +27,10 @@ const mainMenu = [
     name: 'Top Estudiantes',
     link: '/top-estudiantes',
   },
+  {
+    name: 'Charts',
+    link: '/charts',
+  },
 ];
 
 const editMenu = [

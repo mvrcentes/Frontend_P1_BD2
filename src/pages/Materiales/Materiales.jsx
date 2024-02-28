@@ -10,7 +10,7 @@ const materialColumna = [
     { key: 'nombre_material', title: 'Materiales' },
     { key: 'archivo', title: 'Archivo' },
     { key: 'tipo_material', title: 'Tipo de Materiales' },
-]
+];
 
 const Materiales = () => {
     const [materialData, setMaterialesData] = useState([]);
@@ -18,8 +18,18 @@ const Materiales = () => {
     useEffect(() => {
         const fetchMaterialesData = async () => {
           try {
-            const materialData = await ApiService.getMateriales();
-            setMaterialesData(materialData);
+            const fetchedMaterialData = await ApiService.getMateriales();
+
+            // Modify data to replace ObjectID with the actual codigo_curso
+            const modifiedMaterialData = await Promise.all(fetchedMaterialData.map(async material => {
+                const cursoData = await ApiService.getCurso(material.codigo_curso);
+                return {
+                    ...material,
+                    codigo_curso: cursoData.codigo_curso,  // Assuming this is the field in your CursosSchema
+                };
+            }));
+
+            setMaterialesData(modifiedMaterialData);
           } catch (error) {
             console.error("Error fetching material data:", error.message);
           }
@@ -35,4 +45,4 @@ const Materiales = () => {
     )
 }
 
-export default Materiales
+export default Materiales;
