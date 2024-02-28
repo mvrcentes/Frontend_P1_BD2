@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import styles from './InfoTable.module.css';
+import { useState } from 'react'
+import PropTypes from 'prop-types'
+import styles from './InfoTable.module.css'
 
 const InfoTable = ({ data, columns, title, showDetailsButton, onDetailsClick }) => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState('')
 
     const filteredData = data.filter(row => {
         // Customize this logic based on how you want to filter the data
         return Object.values(row).some(value =>
             String(value).toLowerCase().includes(searchTerm.toLowerCase())
-        );
-    });
+        )
+    })
 
     return (
         <div className={styles.tableContainer}>
@@ -66,4 +66,4 @@ InfoTable.propTypes = {
     onDetailsClick: PropTypes.func.isRequired
 }
 
-export default InfoTable;
+export default InfoTable
