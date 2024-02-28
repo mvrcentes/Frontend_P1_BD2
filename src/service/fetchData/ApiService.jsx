@@ -6,9 +6,11 @@ const server = "http://localhost:3000"
 const apiURL = `${server}/api`
 
 const ApiService = {
-    getEstudiantes: async () => {
+    getEstudiantes: async ({ skip = 0, take = 100 } = {}) => {
         try {
-            const response = await axios.get(`${apiURL}/estudiantes/`);
+            const response = await axios.get(`${apiURL}/estudiantes/`, {
+                params: { skip, take },
+            });
             return response.data;
         } catch (error) {
             console.error("Error getting estudiantes:", error.message);

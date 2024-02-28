@@ -14,6 +14,8 @@ const Estudiantes = () => {
   const [studentsData, setStudentsData] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 100;
 
   const handleDetailsClick = (student) => {
     setSelectedStudent(student);
@@ -24,23 +26,40 @@ const Estudiantes = () => {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    const fetchEstudiantesData = async () => {
-      try {
-        const estudiantesData = await ApiService.getEstudiantes();
-        setStudentsData(estudiantesData);
-      } catch (error) {
-        console.error("Error fetching estudiantes data:", error.message);
-      }
-    };
+  const fetchEstudiantesData = async (page) => {
+    try {
+      const skip = (page - 1) * itemsPerPage;
+      const estudiantesData = await ApiService.getEstudiantes({ skip, take: itemsPerPage });
+      setStudentsData(estudiantesData);
+    } catch (error) {
+      console.error("Error fetching estudiantes data:", error.message);
+    }
+  };
 
-    fetchEstudiantesData();
-  }, []); // Empty dependency array means this effect will run once when the component mounts
+  useEffect(() => {
+    fetchEstudiantesData(currentPage);
+  }, [currentPage]);
+
+  const handlePageChange = (newPage) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setCurrentPage(newPage);
+  };
 
   return (
     <div className={styles.estudiantesContainer}>
-      <InfoTable data={studentsData} columns={studentsColumns} title="Estudiantes" onDetailsClick={handleDetailsClick} showDetailsButton={true}/>
+      <InfoTable data={studentsData} columns={studentsColumns} title="Estudiantes" onDetailsClick={handleDetailsClick} showDetailsButton={true} />
       <Modal isOpen={isModalOpen} onClose={closeModal} data={selectedStudent || {}} />
+
+      {/* Pagination controls */}
+      <div className={styles.pagination}>
+        <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+          Previous Page
+        </button>
+        <span>Page {currentPage}</span>
+        <button onClick={() => handlePageChange(currentPage + 1)} disabled={studentsData.length < itemsPerPage}>
+          Next Page
+        </button>
+      </div>
     </div>
   );
 };

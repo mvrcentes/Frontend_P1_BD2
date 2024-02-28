@@ -12,6 +12,18 @@ const ChartPage = () => {
             title: 'Chart 2',
             src: 'https://charts.mongodb.com/charts-project-0-qjisp/embed/charts?id=65deaad3-5529-42ef-8914-a5d7d80f9a80&maxDataAge=3600&theme=light&autoRefresh=true',
         },
+        {
+            title: 'Chart 3',
+            src: 'https://charts.mongodb.com/charts-project-0-qjisp/embed/charts?id=65deb1d7-7b65-4072-8958-ab0f5c9c450f&maxDataAge=3600&theme=light&autoRefresh=true',
+        },
+        {
+            title: 'Chart 4',
+            src: 'https://charts.mongodb.com/charts-project-0-qjisp/embed/charts?id=65deb7e5-4859-447e-8e8a-8e9bcc1c0e59&maxDataAge=3600&theme=light&autoRefresh=true',
+        },
+        {
+            title: 'Chart 5',
+            src: 'https://charts.mongodb.com/charts-project-0-qjisp/embed/charts?id=65deb984-4a68-415d-80dc-ce975944a4ca&maxDataAge=3600&theme=light&autoRefresh=true',
+        },
     ]
 
     return (
