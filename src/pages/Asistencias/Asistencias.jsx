@@ -14,7 +14,6 @@ const asistenciasColumna = [
     { key: 'codigo_estudiante', title: 'Código Estudiante' },
     { key: 'codigo_curso', title: 'Código Curso' },
     { key: 'fecha', title: 'Fecha' },
-    { key: 'asistencia', title: 'Asistencia' },
 ]
 
 const Asistencias = () => {
