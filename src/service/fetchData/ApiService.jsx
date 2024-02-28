@@ -125,6 +125,37 @@ const ApiService = {
             throw error;
         }
     },
+
+    getTopEstudiantesPorCurso: async () => {
+        try {
+            const response = await axios.get(`${server}/api/estudiantes/top-estudiantes-por-curso`);
+            return response.data;
+        } catch (error) {
+            console.error("Error getting top estudiantes:", error.message);
+            throw error;
+        }
+    },
+
+    getMateriales: async () => {
+        try {
+            const response = await axios.get(`${server}/api/materialCurso`);
+            return response.data;
+        } catch (error) {
+            console.error("Error getting material:", error.message);
+            throw error;
+        }
+    },
+
+    postMaterialCurso: async (materialData) => {
+        try {
+            const response = await axios.post(`${server}/api/materialCurso`, materialData);
+            return response.data;
+        } catch (error) {
+            console.error("Error posting material:", error.message);
+            throw error;
+        }
+    }
+
 };
 
 export default ApiService;

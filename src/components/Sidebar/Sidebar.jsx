@@ -19,6 +19,14 @@ const mainMenu = [
     name: 'Asistencias',
     link: '/asistencias',
   },
+  {
+    name: 'Materiales',
+    link: '/materiales',
+  },
+  {
+    name: 'Top Estudiantes',
+    link: '/top-estudiantes',
+  },
 ];
 
 const editMenu = [
@@ -33,6 +41,10 @@ const editMenu = [
   {
     name: 'Despedir Personal',
     link: '/despedir-personal',
+  },
+  {
+    name: 'Agregar Materiales',
+    link: '/agregar-materiales',
   },
 ];
 

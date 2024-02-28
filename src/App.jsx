@@ -8,6 +8,9 @@ import Asistencias from './pages/Asistencias/Asistencias'
 import Notas from './pages/Notas/Notas'
 import CrearEstudianteForm from './pages/CrearEstudianteForm/CrearEstudianteForm'
 import FireWorker from './pages/FireWorker/FireWorker'
+import TopEstudiantes from './pages/TopEstudiantes/TopEstudiantes'
+import Material from './pages/Materiales/Materiales'
+import CrearMaterialesForm from './pages/CrearMaterialesForm/CrearMaterialesForm'
 
 function App() {
   return (
@@ -25,6 +28,15 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/asistencias" element={<Asistencias />} />
+        </Routes>
+        <Routes>
+          <Route path="/top-estudiantes" element={<TopEstudiantes />} />
+        </Routes>
+        <Routes>
+          <Route path="/materiales" element={<Material />} />
+        </Routes>
+        <Routes>
+          <Route path="/agregar-materiales" element={<CrearMaterialesForm />} />
         </Routes>
         <Routes>
           <Route path="/notas" element={<Notas />} />

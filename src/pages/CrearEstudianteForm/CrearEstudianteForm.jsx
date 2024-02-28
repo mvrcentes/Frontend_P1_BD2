@@ -21,7 +21,7 @@ const CrearEstudianteForm = () => {
         }],
         cursos_aprobados: [],
     })
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(null)
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -59,15 +59,15 @@ const CrearEstudianteForm = () => {
 
 
     const handleCursoChange = (e, index) => {
-        const { name, value } = e.target;
-        const updatedCursos = [...formData.cursos_actuales];
-        updatedCursos[index][name] = value;
+        const { name, value } = e.target
+        const updatedCursos = [...formData.cursos_actuales]
+        updatedCursos[index][name] = value
 
         setFormData({
             ...formData,
             cursos_actuales: updatedCursos,
-        });
-    };
+        })
+    }
 
     const handleAddCurso = () => {
         setFormData({
@@ -79,19 +79,29 @@ const CrearEstudianteForm = () => {
                     codigo_curso: '',
                 },
             ],
-        });
-    };
+        })
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        // Validate form data before submission
+        const isFormValid = Object.values(formData).every((value) => (
+            value && (Array.isArray(value) ? value.every((item) => Object.values(item).every(Boolean)) : true)
+        ))
+
+        if (!isFormValid) {
+            setError('Por favor, complete todos los campos obligatorios.')
+            return
+        }
+
         try {
             await ApiService.postEstudiante(formData)
             console.log('Student created successfully!')
-            window.location.reload();
+            window.location.reload()
         } catch (error) {
             console.error('Error creating student:', error.message)
-            setError(error.response?.data?.error || 'Error interno del servidor');
+            setError(error.response?.data?.error || 'Error interno del servidor')
         }
     }
 
