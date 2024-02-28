@@ -27,8 +27,12 @@ const editMenu = [
     link: '/notas',
   },
   {
-    name: 'Edit Tab 2',
-    link: '/edit-tab-2',
+    name: 'Agregar Estudiante',
+    link: '/agregar-estudiante',
+  },
+  {
+    name: 'Despedir Personal',
+    link: '/despedir-personal',
   },
 ];
 

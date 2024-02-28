@@ -18,7 +18,7 @@ const personalColumna = [
     { key: 'sexo', title: 'Sexo' },
     { key: 'dpi', title: 'DPI' },
     { key: 'tipo_de_trabajo', title: 'Tipo de Trabajo' },
-    { key: 'salario', title: 'Salario' },
+    { key: 'salario', title: 'Salario (Q)' },
 ]
 
 const Personal = () => {
