@@ -1,62 +1,49 @@
 // Notas.jsx
-import { useState } from 'react';
-import GradesTable from '../../components/GradesTable/GradesTable';
-import StudentCodeInput from '../../components/StudentCodeInput/StudentCodeInput';
-import EditGradeRow from '../../components/EditGradeRow/EditGradeRow';
-import styles from './Notas.module.css';
-// import ApiService from 'path-to-your-api-service'; // Commented out for testing
-
-// Mocked data for testing
-const mockedGrades = [
-  { codigo_nota: "1010", codigo_curso: 'MM1020', codigo_estudiante: "20070101", nota: 90 },
-  { codigo_nota: "1020", codigo_curso: 'SS1020', codigo_estudiante: "20070101", nota: 85 },
-  { codigo_nota: "1030", codigo_curso: 'HH1020', codigo_estudiante: "20070101", nota: 92 },
-  { codigo_nota: "1040", codigo_curso: 'MM1020', codigo_estudiante: "20070102", nota: 88 },
-  { codigo_nota: "1050", codigo_curso: 'SS1020', codigo_estudiante: "20070102", nota: 95 },
-];
+import { useState } from 'react'
+import GradesTable from '../../components/GradesTable/GradesTable'
+import StudentCodeInput from '../../components/StudentCodeInput/StudentCodeInput'
+import EditGradeRow from '../../components/EditGradeRow/EditGradeRow'
+import styles from './Notas.module.css'
+import ApiService from '../../service/fetchData/ApiService'
 
 const Notas = () => {
-  const [studentCode, setStudentCode] = useState('');
-  const [grades, setGrades] = useState([]);
-  const [editingIndex, setEditingIndex] = useState(null);
+  const [studentCode, setStudentCode] = useState('')
+  const [grades, setGrades] = useState([])
+  const [editingIndex, setEditingIndex] = useState(null)
 
-  const handleStudentCodeSubmit = (code) => {
-    // Filter grades based on the input student code
-    const filteredGrades = mockedGrades.filter(grade => grade.codigo_estudiante === code);
-
-    setStudentCode(code);
-
-    if (filteredGrades.length > 0) {
-      setGrades(filteredGrades);
-    } else {
-      setGrades([]);
+  const handleStudentCodeSubmit = async (code) => {
+    console.log("button pressed")
+    try {
+      setStudentCode(code)
+      const fetchedGrades = await ApiService.getNotasEstudiante(code)
+      setGrades(fetchedGrades)
+    } catch (error) {
+      console.error("Error fetching grades:", error.message)
+      return
     }
-  };
-
-  // const handleStudentCodeSubmit = (code) => {
-  //   setStudentCode(code);
-  //   // const fetchedGrades = ApiService.getNotasEstudiante(code); // Replace with actual API call
-  //   // setGrades(fetchedGrades);
-  //   setGrades(mockedGrades); // Use mocked data for testing
-  // };
+  }
 
   const handleEdit = (index) => {
-    setEditingIndex(index);
-  };
+    setEditingIndex(index)
+  }
 
-  const handleEditSubmit = (editedGrade) => {
-    // await ApiService.postNota(studentCode, grades[editingIndex].curso, editedGrade);
+  const handleEditSubmit = async (editedGrade) => {
 
-    // const updatedGrades = await ApiService.getNotasEstudiante(studentCode);
+    try {
+      await ApiService.editNota(studentCode, grades[editingIndex].codigo_curso, grades[editingIndex].codigo_nota, editedGrade)
 
-    // Update grades state
-    const updatedGrades = [...grades];
-    updatedGrades[editingIndex].nota = editedGrade;
-    setGrades(updatedGrades);
+      const updatedGrades = await ApiService.getNotasEstudiante(studentCode)
 
-    // Reset editingIndex
-    setEditingIndex(null);
-  };
+      console.log(grades[editingIndex].codigo_nota, editedGrade)
+      setGrades(updatedGrades)
+
+      // Reset editingIndex
+      setEditingIndex(null)
+    } catch (error) {
+      console.error("Error updating grade:", error.message)
+      return
+    }
+  }
 
   return (
     <div className={styles.notasContainer}>
@@ -72,7 +59,7 @@ const Notas = () => {
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Notas;
+export default Notas
